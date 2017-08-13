@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>玛格南-罗伯特·卡帕</title>
+<link rel="shortcut icon" href="./images/icon.ico">
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/blue.css" rel="stylesheet" type="text/css" media="all" />
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
+<!-- start plugins -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/modernizr.foundation.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.minified.plugins.js"></script>
+<!--start slider -->
+    <link rel="stylesheet" href="css/fwslider.css" media="all">
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/css3-mediaqueries.js"></script>
+    <script src="js/fwslider.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+<!--end slider -->
+<!-- must have -->
+<link href="css/allinone_carousel.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+<script src="js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+<script src="js/allinone_carousel.js" type="text/javascript"></script>
+<!--[if IE]><script src="js/excanvas.compiled.js" type="text/javascript"></script>
+<![endif]-->
+<!-- must have -->
+	<script>
+		jQuery(function() {
+
+			jQuery('#allinone_carousel_charming').allinone_carousel({
+				skin: 'charming',
+				width: 990,
+				height: 454,
+				responsive:true,
+				autoPlay: 3,
+				resizeImages:true,
+				autoHideBottomNav:false,
+				showElementTitle:false,
+				verticalAdjustment:50,
+				showPreviewThumbs:false,
+				//easing:'easeOutBounce',
+				numberOfVisibleItems:5,
+				nextPrevMarginTop:23,
+				playMovieMarginTop:0,
+				bottomNavMarginBottom:-10
+			});		
+		});
+	</script>
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!-- start circle -->
+<script>
+(function($){
+	$.fn.percentPie = function(options){
+
+		var settings = $.extend({
+			width: 100,
+			trackColor: "EEEEEE",
+			barColor: "E2534B",
+			barWeight: 30,
+			startPercent: 0,
+			endPercent: 1,
+			fps: 60
+		}, options);
+
+		this.css({
+			width: settings.width,
+			height: settings.width
+		});
+
+		var	that = this,
+			hoverPolice = false,
+			canvasWidth = settings.width,
+			canvasHeight = canvasWidth,
+			id = $('canvas').length,
+			canvasElement = $('<canvas id="'+ id +'" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+			canvas = canvasElement.get(0).getContext("2d"),
+			centerX = canvasWidth/2,
+			centerY = canvasHeight/2,
+			radius = settings.width/2 - settings.barWeight/2;
+			counterClockwise = false,
+			fps = 1000 / settings.fps,
+			update = .01;
+			this.angle = settings.startPercent;
+
+		this.drawArc = function(startAngle, percentFilled, color){
+			var drawingArc = true;
+			canvas.beginPath();
+			canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), counterClockwise);
+			canvas.strokeStyle = color;
+			canvas.lineWidth = settings.barWeight;
+			canvas.stroke();
+			drawingArc = false;
+		}
+
+		this.fillChart = function(stop){
+			var loop = setInterval(function(){
+				hoverPolice = true;
+				canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+				that.drawArc(0, 360, settings.trackColor);
+				that.angle += update;
+				that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+				if(that.angle > stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
+			}, fps);
+		}
+
+		this.mouseover(function(){
+			if(hoverPolice == false){
+				that.angle = settings.startPercent;
+				that.fillChart(settings.endPercent);
+			}
+		});
+
+		this.fillChart(settings.endPercent);
+		this.append(canvasElement);
+		return this;
+	}
+}(jQuery));
+
+$(document).ready(function() {
+
+	$('.google').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .9,
+		fps: 60
+	});
+  
+  $('.moz').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .75,
+		fps: 60
+	});
+  
+  $('.safari').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "#76C7C0",
+		barWeight: 20,
+		endPercent: .5,
+		fps: 60
+	});
+    
+});
+</script>
+<!--newhead 06.22.17.43-->
+<link rel="stylesheet" href="css/foundation.css">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/modernizr.foundation.js"></script>
+<!--.newhead 06.22.17.43-->
+<link rel="icon" href="images/favicon.ico">
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="stylesheet" href="css/touchTouch.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-migrate-1.1.1.js"></script>
+		<script src="js/jquery.equalheights.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/touchTouch.jquery.js"></script>
+		<script>
+		$(document).ready(function(){
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			$('.gallery a.gal').touchTouch();
+		})
+		</script>
+		<!--[if lt IE 8]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
+		<!--[if lt IE 10]>
+		<link rel="stylesheet" media="screen" href="css/ie1.css">
+		<![endif]-->
+</head>
+
+
+
+<body>
+<!--main container-->
+
+<div class="container master">
+
+<!--header--><div class="header container">
+<div class="row"><!--row-->
+<!--logo--><div class="three columns logo">
+<a class="left" href="./index.html"><img src="images/logo.png" title="玛格南" alt="玛格南" style="height:110px;"/></a>
+</div><!-- /logo-->
+
+<!--navigation--><div class="nine columns">
+
+<ul class="nav-bar right">
+<li><a href="./index.html" class="main">首页</a></li>
+
+<!--sub menu--><li class="has-flyout"><a href="./about1.html">关于 +</a>
+<ul class="flyout">
+<li><a href="./about1.html">关于玛格南</a></li>
+<!--sub sub menu--><li class="has-flyout-sub"><a href="./about2.html" display="inline-block" style="width:150px">关于四骑士 +</a>
+
+<ul class="sub-flyout">
+<li><a href="./about2.html#simpleContained1" display="inline-block" style="width:150px">罗伯特·卡帕</a></li>
+<li><a href="./about2.html#simpleContained2" display="inline-block" style="width:150px">尤金·史密斯</a></li>
+<li><a href="./about2.html#simpleContained3" display="inline-block" style="width:150px">马克·吕布</a></li>
+<li><a href="./about2.html#simpleContained4" display="inline-block" style="width:150px">卡蒂埃·布列松</a></li>
+
+</ul>
+</ul><!--.sub sub menu-->
+
+</li><!--.submenu-->
+
+<li><a href="./page1.html">罗伯特·卡帕</a></li>
+<li><a href="./page2.html">尤金·史密斯</a></li>
+<li><a href="./page3.html">马克·吕布</a></li>
+<li><a href="./page4.html">卡蒂埃·布列松</a></li>
+</ul>
+
+</div><!--.navigation-->
+
+</div><!--.row-->
+</div><!--.header-->
+
+<!--grid-->
+<div class="row">
+<!--three columns--><div class="three columns" style="width:300px">
+
+<!--blog about--><div class="blog-about">
+<a style="font-family:arial;font-size:30px;">Photographer</a>
+<!--post 1--><div class="post">
+<div class="date"></div>
+<div style="width:270px;padding-left:25px;"><img src="images/rc/rc.jpg" style="width:200px;"/></div>
+
+<div class="title">
+<h5>罗伯特·卡帕</h5>
+</div>
+<div class="date"></div>
+<div class="text">
+<p>如果你的照片拍得不够好，那是因为你靠得不够近。</p>
+</div>
+<div class="meta">
+<p>by Robert Capa</p>
+</div>
+
+</div><!--.post 2-->
+
+</div><!--.blog about-->
+
+</div><!--.three columns-->
+<div class="container_12">
+<div class="gallery">
+					<div class="grid_3">
+						<a href="images/rc/rc1.jpg" class="gal"><img src="images/rc/src1.jpg" alt=""></a>
+						<div class="text1">共和国战士之死</div>
+						西班牙:科尔瓦多前线战场.1936年9月.一名忠诚的西班牙共和军民兵在战斗中牺牲.
+						<br>
+						
+					</div>
+					<div class="grid_3">
+						<a href="images/rc/rc2.jpg" class="gal"><img src="images/rc/src2.jpg" alt=""></a>
+						<div class="text1">诺曼底登陆</div>
+						法国:诺曼底.1944年6月6日.诺曼底登陆日美军突袭奥马哈海滩.
+						<br>
+						
+					</div>
+					<div class="grid_3">
+						<a href="images/rc/rc3.jpg" class="gal"><img src="images/rc/src3.jpg" alt=""></a>
+						<div class="text1">和平集会</div>
+						法国:凡尔登.1926年7月12日.为纪念一战凡尔登战役二十周年的和平集会上的德国代表们.
+						<br>
+						
+					</div>
+<div class="clear"></div>
+					<div class="grid_3">
+						<a href="images/rc/rc4.jpg" class="gal"><img src="images/rc/src4.jpg" alt=""></a>
+						<div class="text1">临终关怀</div>
+						法国.1944年6月/7月.一位美国牧师正在抚慰一名垂死的德军俘虏.
+						<br>
+						
+					</div>
+					
+					<div class="grid_3">
+						<a href="images/rc/rc5.jpg" class="gal"><img src="images/rc/src5.jpg" alt=""></a>
+						<div class="text1">弥撒</div>
+						法国:诺曼底.1944年6月.一名天主教神父正在做弥撒.
+						<br>
+						
+					</div>
+					<div class="grid_3">
+						<a href="images/rc/rc6.jpg" class="gal"><img src="images/rc/src6.jpg" alt=""></a>
+						<div class="text1">写信</div>
+						西班牙:马德里.1936年11月-12月.一名共和军士兵.
+						<br>
+						
+					</div>
+                                        <div class="clear"></div>
+					<div class="grid_3">
+						<a href="images/rc/rc7.jpg" class="gal"><img src="images/rc/src7.jpg" alt=""></a>
+						<div class="text1">送别</div>
+						西班牙.莱斯马塞斯.1938年10月25日.国际纵队(西班牙内战期间各国人士组成的反法西斯志愿军)欢送仪式.
+						<br>
+						
+					</div>
+					<div class="grid_3">
+						<a href="images/rc/rc8.jpg" class="gal"><img src="images/rc/src8.jpg" alt=""></a>
+						<div class="text1">老妇</div>
+						西班牙:马德里.1936-1337年冬.德意联合空袭后.1936年11月至1937年2月间持续的叛军国民军进犯马德里是西班牙内战中最为惨烈的战斗.
+						<br>
+						
+					</div>
+<div class="grid_3">
+						<a href="images/rc/rc9.jpg" class="gal"><img src="images/rc/src9.jpg" alt=""></a>
+						<div class="text1">空袭</div>
+						西班牙:毕尔巴鄂.1937年5月.巴斯克区.空袭中奔向避难所.
+						<br>
+						
+					</div>
+				</div>
+</div>
+</div><!--.grid-->
+
+
+<!--footer--><div class="footer container">
+<!--row--><div class="row bottom">
+<div class="left">
+Created With Passion by LyuLu.Copyright &copy;MoonLight Personal.All rights reserved.Contact the Author <a href="mailto:njlvlu@gmail.com" alt="发送邮件">吕露</a>.
+</div>
+
+<div class="right">
+<ul class="social">
+<li><a href="https://www.linkedin.com/uas/login?goback=%2Ebzo_*1_*1_*1_*1_*1_*1_*1_linkedin&trk=hb_signin"><img src="images/linkedin.png" alt="LinkedIn" title="LinkedIn" /></a></li>
+<li><a href="https://login.skype.com/login?setlang=zh-Hans&application=account"><img src="images/skype.png" alt="Skype" title="Skype" /></a></li>
+<li><a href="https://app.yinxiang.com/Login.action?targetUrl=%2FHome.action"><img src="images/evernote.png" alt="Evernote" title="Evernote" /></a></li>
+<li><a href="https://mail.qq.com/"><img src="images/rss.png" alt="Rss" title="Rss" /></a></li>
+</ul>
+</div>
+</div><!--.row-->
+</div><!--.footer container-->
+
+</body>
+</html>

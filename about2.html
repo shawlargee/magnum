@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>玛格南-关于四骑士</title>
+<link rel="shortcut icon" href="./images/icon.ico">
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/blue.css" rel="stylesheet" type="text/css" media="all" />
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
+<!-- start plugins -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/modernizr.foundation.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.minified.plugins.js"></script>
+<!--start slider -->
+    <link rel="stylesheet" href="css/fwslider.css" media="all">
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/css3-mediaqueries.js"></script>
+    <script src="js/fwslider.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+<!--end slider -->
+<!-- must have -->
+<link href="css/allinone_carousel.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+<script src="js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+<script src="js/allinone_carousel.js" type="text/javascript"></script>
+<!--[if IE]><script src="js/excanvas.compiled.js" type="text/javascript"></script>
+<![endif]-->
+<!-- must have -->
+	<script>
+		jQuery(function() {
+
+			jQuery('#allinone_carousel_charming').allinone_carousel({
+				skin: 'charming',
+				width: 990,
+				height: 454,
+				responsive:true,
+				autoPlay: 3,
+				resizeImages:true,
+				autoHideBottomNav:false,
+				showElementTitle:false,
+				verticalAdjustment:50,
+				showPreviewThumbs:false,
+				//easing:'easeOutBounce',
+				numberOfVisibleItems:5,
+				nextPrevMarginTop:23,
+				playMovieMarginTop:0,
+				bottomNavMarginBottom:-10
+			});		
+		});
+	</script>
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!-- start circle -->
+<script>
+(function($){
+	$.fn.percentPie = function(options){
+
+		var settings = $.extend({
+			width: 100,
+			trackColor: "EEEEEE",
+			barColor: "E2534B",
+			barWeight: 30,
+			startPercent: 0,
+			endPercent: 1,
+			fps: 60
+		}, options);
+
+		this.css({
+			width: settings.width,
+			height: settings.width
+		});
+
+		var	that = this,
+			hoverPolice = false,
+			canvasWidth = settings.width,
+			canvasHeight = canvasWidth,
+			id = $('canvas').length,
+			canvasElement = $('<canvas id="'+ id +'" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+			canvas = canvasElement.get(0).getContext("2d"),
+			centerX = canvasWidth/2,
+			centerY = canvasHeight/2,
+			radius = settings.width/2 - settings.barWeight/2;
+			counterClockwise = false,
+			fps = 1000 / settings.fps,
+			update = .01;
+			this.angle = settings.startPercent;
+
+		this.drawArc = function(startAngle, percentFilled, color){
+			var drawingArc = true;
+			canvas.beginPath();
+			canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), counterClockwise);
+			canvas.strokeStyle = color;
+			canvas.lineWidth = settings.barWeight;
+			canvas.stroke();
+			drawingArc = false;
+		}
+
+		this.fillChart = function(stop){
+			var loop = setInterval(function(){
+				hoverPolice = true;
+				canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+				that.drawArc(0, 360, settings.trackColor);
+				that.angle += update;
+				that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+				if(that.angle > stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
+			}, fps);
+		}
+
+		this.mouseover(function(){
+			if(hoverPolice == false){
+				that.angle = settings.startPercent;
+				that.fillChart(settings.endPercent);
+			}
+		});
+
+		this.fillChart(settings.endPercent);
+		this.append(canvasElement);
+		return this;
+	}
+}(jQuery));
+
+$(document).ready(function() {
+
+	$('.google').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .9,
+		fps: 60
+	});
+  
+  $('.moz').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .75,
+		fps: 60
+	});
+  
+  $('.safari').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "#76C7C0",
+		barWeight: 20,
+		endPercent: .5,
+		fps: 60
+	});
+    
+});
+</script>
+<!--newhead 06.22.17.43-->
+<link rel="stylesheet" href="css/foundation.css">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/modernizr.foundation.js"></script>
+<!--.newhead 06.22.17.43-->
+</head>
+<body>
+
+<!--main container-->
+
+<div class="container master">
+
+<!--header--><div class="header container">
+<div class="row"><!--row-->
+<!--logo--><div class="three columns logo">
+<a class="left" href="./index.html"><img src="images/logo.png" title="玛格南" alt="玛格南" style="height:110px;"/></a>
+</div><!-- /logo-->
+
+<!--navigation--><div class="nine columns">
+
+<ul class="nav-bar right">
+<li><a href="./index.html" class="main">首页</a></li>
+
+<!--sub menu--><li class="has-flyout"><a href="./about1.html">关于 +</a>
+<ul class="flyout">
+<li><a href="./about1.html">关于玛格南</a></li>
+<!--sub sub menu--><li class="has-flyout-sub"><a href="./about2.html" display="inline-block" style="width:150px">关于四骑士 +</a>
+
+<ul class="sub-flyout">
+<li><a href="#simpleContained1" display="inline-block" style="width:150px;">罗伯特·卡帕</a></li>
+<li><a href="#simpleContained2" display="inline-block" style="width:150px">尤金·史密斯</a></li>
+<li><a href="#simpleContained3" display="inline-block" style="width:150px">马克·吕布</a></li>
+<li><a href="#simpleContained4" display="inline-block" style="width:150px">卡蒂埃·布列松</a></li>
+
+</ul>
+</ul><!--.sub sub menu-->
+
+</li><!--.submenu-->
+<li><a href="./page1.html">罗伯特·卡帕</a></li>
+<li><a href="./page2.html">尤金·史密斯</a></li>
+<li><a href="./page3.html">马克·吕布</a></li>
+<li><a href="./page4.html">卡蒂埃·布列松</a></li>
+</ul>
+
+</div><!--.navigation-->
+
+</div><!--.row-->
+</div><!--.header-->
+
+<!--tab content--><div class="tab-content">
+<!--tab nav--><dl class="tabs">
+  <dd><a href="#simpleContained1" style="color:#db191d;font-family:'华文细黑';font-weight:bold;font-size:20px;height: 45px;text-decoration:none">罗伯特·卡帕</a></dd>
+
+  <dd><a href="#simpleContained2" style="color:#094370;font-family:'华文细黑';font-weight:bold;font-size:20px;height: 45px;text-decoration:none">尤金·史密斯</a></dd>
+
+  <dd><a href="#simpleContained3"style="color:#db191d;font-family:'华文细黑';font-weight:bold;font-size:20px;height: 45px;text-decoration:none">马克·吕布</a></dd>
+
+  <dd><a href="#simpleContained4"style="color:#094370;font-family:'华文细黑';font-weight:bold;font-size:20px;height: 45px;text-decoration:none">卡蒂埃·布列松</a></dd>
+
+</dl><!--.tab nav-->
+
+<!--tab content--><ul class="tabs-content">
+  <li class="active" id="simpleContained1Tab"><p><span style="color:#db191d;font-family:'华文细黑';font-size:15px;font-weight:bold;">罗伯特·卡帕</span>（Robert Capa，1913 - 1954）是匈牙利裔美籍摄影记者，二十世纪最著名的战地摄影记者之一。生于奥匈帝国时期的布达佩斯的一个犹太家庭，原名安德鲁·弗里德曼(André Friedmann)。1947年，他和布列松一同创立了著名的玛格南图片社，成为了全球第一家自由摄影师的合作组织。1954年5月25日，卡帕在越南采访第一次印支战争时，误入雷区踩中地雷被炸身亡。</p><p>
+卡帕比谁都有资格代表战地记者发言，表白出用生命换取影像的心境和代价。他是有史以来最有名的战地记者，他的摄影生涯就如同赌命一样，在二战期间的各个战区——西班牙内战、日本侵华、北亚战争、意大利战争、诺曼第登陆战、法国解放战的枪林弹雨中，用血肉之躯去换取莱卡相机里的一格格底片。看卡帕的照片仿佛可以听到子弹疾飞、炮弹隆隆的声响，每一帧都是人类愚蠢行为的明证。</p><p>
+在人们残留的记忆中，有这样一张照片，卡帕嘴角上叼着燃烧的香烟，手里摆弄着一架相机，他用一种平静的目光看着照片的阅读者。右上角有一行字：发明自我的人——安德烈·弗里德曼，也就是罗伯特·卡帕。</p>
+   <a href="http://baike.baidu.com/link?url=HTVG0MkfOyoX0r7hmoL78CIWhiw1QqHuPn6KuJr7fpirP_7EQu24dTWAoliX8KjZ" class="small button default">了解更多</a>
+</li>
+  <li id="simpleContained2Tab"><p><span style="color:#094370;font-family:'华文细黑';font-size:15px;font-weight:bold;">尤金·史密斯</span>（W.Eugene Smith，1918 - 1978）是美国著名的纪实新闻摄影师，并因为他拒绝向所谓的专业标准妥协，以及既残暴又逼真的二次世界大战照片而闻名于世。在纪实摄影的发展过程中，尤金·密斯被认为是一个具有里程碑意义的人物，他的报道摄影，自始至终，都贯穿着一种强烈的人道主义情怀，不管何时何地何种情况，尤金·史密斯的影像都始终坚持着他最开始的理想和目标，即便是在他晚年病魔缠身、贫困潦倒的时候，史密斯依然紧握相机，竭尽全力地拍摄作品。</p><p>
+史密斯倡导”摄影文章",类似我们称作"专题摄影"的形式,这使他的摄影作品有更丰富、充实的内容和深刻的人物思想风貌。例如他的《乡村医生》、《助产士》、《西班牙村落》、《三K党》、《无菌生活研究》等等,都深刻地刻划了人物和事件而使人有极深刻的印象和理解。</p><p>
+1979年，纽约的国际摄影中心设立了“尤金·史密斯人道主义摄影奖”，以表彰他对人性的信念，并奖掖为同样的报负而取得突出成就的后来者。</p>
+  <a href="http://baike.baidu.com/link?url=N9o9Kl4zjxXaum65N1vjh3jt_2CtcehMWlGNGMHWgsl9vUM7caHiNQ82-qg1RXxe-w4wh5p70xOWJzZeUQ1Pkq" class="small button default">了解更多</a>
+</li>
+
+  <li id="simpleContained3Tab"><p><span style="color:#db191d;font-family:'华文细黑';font-size:15px;font-weight:bold;">马克·吕布</span>(Marc Riboud，1923 - )，法国著名摄影师，以来自东方的延伸报道而著称。主要作品有：《The Three Banners of China》（《中国三面红旗》）、《Face of North Vietnam》（北越：面孔）、《Visions of China》（《中国印象》）。</p><p>
+马克·吕布与中国有着极深渊源，他自称徘徊在北京王府井大街的次数比在巴黎香榭丽舍大道还要多。他是上世纪50年代首位获准进入中国拍摄的西方摄影师，后来多次受到周恩来总理的邀请来到中国。半个多世纪前，马克·吕布从印度辗转香港来到广州，然后一路北上记录中国风景，其中包括他在汉的所见所闻及建设中的长江大桥。他抓拍的众多黑白照片，已成为巨变中国的一份历史档案。1957年马克·吕布发表了他报道中国的第一张图片，从那以后，马克·吕布先后到中国20多次。</p><p>
+马克·吕布的作品并不一定是那些惊天动地的大事，在他到世界各国旅行期间，他敏感地拍摄当地人民的生活变化，特别是通过一些细微的生活细节反映出一些重大和深远意义的内容。他不但用黑白材料拍摄新闻报道摄影，也用彩色材料拍摄，而他的这些彩色作品不但构图精彩，而且色彩优雅、细微。</p>
+   <a href="http://baike.baidu.com/view/143909.htm?from_id=10938959&type=syn&fromtitle=%E9%A9%AC%E5%85%8B%E5%90%95%E5%B8%83&fr=aladdin" class="small button default">了解更多</a>
+</li>
+  <li id="simpleContained4Tab"><p><span style="color:#094370;font-family:'华文细黑';font-size:15px;font-weight:bold;">亨利·卡蒂埃-布列松</span>(Henri Cartier Bresson，1908 - 2004)法国人，世界著名的人文摄影家，决定性瞬间理论的创立者与实践者。被誉为"现代新闻摄影之父"。</p><p>
+布列松提出了摄影史上最著名的“决定性瞬间”理论，“决定性瞬间”特指通过抓拍手段,在极短暂的几分之一秒的瞬间中,将具有决定性意义的事物加以概括,并用强有力的视觉构图表达出来.这种抓拍的摄影思想同时也被与布列松同时代的德国摄影家爱瑞克·萨洛蒙博士、匈牙利著名战地摄影记者罗伯特·卡帕等摄影名家所推崇,并成为新闻摄影最有效的手段。</p><p>
+布列松认为，摄影作品承担着重要的社会责任，每个摄影师都应深具尊严感，都应意识到：无论一幅摄影作品画面多么辉煌、技术多么到位，如果它远离了爱，远离了对人类的理解，远离了对人类命运的认知，那么它一定不是一件成功的作品。布列松的立意是高远的，但他选取的素材通常都是微小的。“在摄影中，最小的事物可以成为伟大的主题。”《男孩》(1958)就体现了这种风格，它的题材并不重大，却是布列松的一幅脍炙人口的名作。一个男孩的两只手里，各抱一个大酒瓶，踌躇满志地走回家，好像完成了一个光荣而艰巨的任务。照片中的人物，情绪十分自然真实，显示出布列松熟练的抓拍功夫。</p>
+  <a href="http://baike.baidu.com/view/1489586.htm?fr=aladdin" class="small button default">了解更多</a>
+</li>
+</ul>
+</div><!--.tab content-->
+
+
+<!--footer--><div class="footer container">
+<!--row--><div class="row bottom">
+
+<div class="left" style="color:#8c8989;font-family:'华文细黑';font-size:14px;">
+Created With Passion by LyuLu.Copyright &copy;MoonLight Personal.All rights reserved.Contact the Author <a href="mailto:njlvlu@gmail.com" alt="发送邮件">吕露</a>.
+</div>
+
+<div class="right">
+<ul class="social">
+<li><a href="https://www.linkedin.com/uas/login?goback=%2Ebzo_*1_*1_*1_*1_*1_*1_*1_linkedin&trk=hb_signin"><img src="images/linkedin.png" alt="LinkedIn" title="LinkedIn" /></a></li>
+<li><a href="https://login.skype.com/login?setlang=zh-Hans&application=account"><img src="images/skype.png" alt="Skype" title="Skype" /></a></li>
+<li><a href="https://app.yinxiang.com/Login.action?targetUrl=%2FHome.action"><img src="images/evernote.png" alt="Evernote" title="Evernote" /></a></li>
+<li><a href="https://mail.qq.com/"><img src="images/rss.png" alt="Rss" title="Rss" /></a></li>
+</ul>
+</div>
+
+</div><!--.row-->
+
+</div><!--.footer container-->
+
+</body>
+</html>

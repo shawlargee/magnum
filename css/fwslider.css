@@ -1,0 +1,199 @@
+/* ------------------------------- 3. Slider Styles ------------------------------- */
+
+#fwslider {
+    position: relative;
+    width:100%;
+    font-family: 'roboto_condensedregular';
+}
+
+#fwslider .slide {
+    display: none;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 0;
+    width:100%;
+}
+
+#fwslider .slide img {
+    width:100%;
+}
+
+#fwslider .slidePrev {
+    background: rgba(0, 0, 0, 0.46);
+    width:50px;
+    height:100px;
+    position: absolute;
+    top:50%;
+    left:-50px;
+    z-index: 10;
+}
+
+#fwslider .slidePrev span {
+	background: url("../images/arrows.png") no-repeat 16px 40px;
+	width: 45px;
+	height: 100px;
+	float: left;
+	cursor: pointer;
+}
+#fwslider .slideNext {
+    background: rgba(0, 0, 0, 0.46);
+    width:50px;
+    height:100px;
+    position: absolute;
+    top:50%;
+    right:-50px;
+    z-index: 10;
+}
+
+#fwslider .slideNext span {
+	background: url("../images/arrows.png") no-repeat -16px 40px;
+	width: 45px;
+	height: 100px;
+	float: left;
+	cursor: pointer;
+}
+
+#fwslider .timers {
+    height:4px;
+    position: absolute;
+    bottom:15px;
+    right:0;
+    z-index: 3;
+}
+
+#fwslider .timer {
+    height:4px;
+    width:40px;
+    background-color: #000;
+    float:left;
+    margin-right: 10px;
+}
+
+#fwslider .progress {
+    height:4px;
+    width:0%;
+    background-color: #FF0000;
+    float:left;
+}
+
+#fwslider .slide_content {
+    top:0;
+    left:0;
+    position: absolute;
+    width:100%;
+    height:100%;
+}
+
+#fwslider .slide_content_wrap { /* Slider Text Content Container Style */
+       max-width:1280px;
+        margin:6% auto;
+        text-align: center;
+	width: 60%;
+        color: #fff;
+        font-family:'华文细黑';
+	font-size: 20px;
+	background: rgba(0, 0, 0, 0.46);
+	padding: 15px 30px;
+	font-style: normal;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+
+#fwslider .selected{color:red;
+                    font-family:'华文细黑';
+	             font-size: 20px;
+                    text-indent:0em;
+}
+
+#fwslider .slide_hr{ 
+         color:white;
+         width:100%;
+         height:1px;
+
+}
+#fwslider .slider_container .slide_content .slid
+e_content_wrap a:link{color:white;text-decoration:none;}
+
+#fwslider .title {  /* Slider Title Style */
+	text-align: center;
+	width: 60%;
+        height:80px;
+	margin:0 auto;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 30px;
+        line-height:80px;
+	background: rgba(0, 0, 0, 0.6);
+
+	font-style: normal;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+
+#fwslider .description { /* Slider Description Style */
+	text-align: center;
+	color: #ffffff;
+	width: 75%;
+	margin: 0 auto;
+	font-size: 18px;
+	background:rgba(0, 0, 0, 0);
+	padding: 15px 30px;
+	clear: both;
+	margin-top: 10px;
+	line-height: 10px;
+	font-style: normal;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+
+
+
+/* ------------------------------- 4. Media Query Max Width 1300, Min Width 720 ------------------------------- */
+@media only screen and (min-width:720px) and (max-width: 1300px) {
+
+    #fwslider .slide_content_wrap { margin-left:20%; margin-top:10%;}
+    #fwslider .title {
+		width: 70%;
+		font-size:24px;
+	}
+	#fwslider .description {
+		width: 70%;
+		font-size:13px;
+		padding: 15px 10px;
+	}
+}
+
+/* ------------------------------- 5. Media Query Max Width 719 ------------------------------- */
+
+@media only screen and (max-width:719px) {
+
+    #fwslider .slide_content_wrap { display:none; }
+    #fwslider .timers { display:none; }
+    #fwslider .slide_content {cursor: pointer;}
+    #fwslider .slideNext {
+		width: 40px;
+		height: 40px;
+	}
+	#fwslider .slidePrev {
+		width: 40px;
+		height: 40px;		
+	}
+	#fwslider .slideNext span {
+		background: url("../images/arrows.png") no-repeat -20px 11px;
+		width: 40px;
+		height: 40px;
+	}
+	#fwslider .slidePrev span {
+		background: url("../images/arrows.png") no-repeat 12px 11px;
+		width: 40px;
+		height: 40px;
+	}
+
+}

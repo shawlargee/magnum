@@ -1,0 +1,382 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>玛格南-马克·吕布</title>
+<link rel="shortcut icon" href="./images/icon.ico">
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/blue.css" rel="stylesheet" type="text/css" media="all" />
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
+<!-- start plugins -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/modernizr.foundation.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.minified.plugins.js"></script>
+<!--start slider -->
+    <link rel="stylesheet" href="css/fwslider.css" media="all">
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/css3-mediaqueries.js"></script>
+    <script src="js/fwslider.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+<!--end slider -->
+<!-- must have -->
+<link href="css/allinone_carousel.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+<script src="js/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+<script src="js/allinone_carousel.js" type="text/javascript"></script>
+<!--[if IE]><script src="js/excanvas.compiled.js" type="text/javascript"></script>
+<![endif]-->
+<!-- must have -->
+	<script>
+		jQuery(function() {
+
+			jQuery('#allinone_carousel_charming').allinone_carousel({
+				skin: 'charming',
+				width: 990,
+				height: 454,
+				responsive:true,
+				autoPlay: 3,
+				resizeImages:true,
+				autoHideBottomNav:false,
+				showElementTitle:false,
+				verticalAdjustment:50,
+				showPreviewThumbs:false,
+				//easing:'easeOutBounce',
+				numberOfVisibleItems:5,
+				nextPrevMarginTop:23,
+				playMovieMarginTop:0,
+				bottomNavMarginBottom:-10
+			});		
+		});
+	</script>
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!-- start circle -->
+<script>
+(function($){
+	$.fn.percentPie = function(options){
+
+		var settings = $.extend({
+			width: 100,
+			trackColor: "EEEEEE",
+			barColor: "E2534B",
+			barWeight: 30,
+			startPercent: 0,
+			endPercent: 1,
+			fps: 60
+		}, options);
+
+		this.css({
+			width: settings.width,
+			height: settings.width
+		});
+
+		var	that = this,
+			hoverPolice = false,
+			canvasWidth = settings.width,
+			canvasHeight = canvasWidth,
+			id = $('canvas').length,
+			canvasElement = $('<canvas id="'+ id +'" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+			canvas = canvasElement.get(0).getContext("2d"),
+			centerX = canvasWidth/2,
+			centerY = canvasHeight/2,
+			radius = settings.width/2 - settings.barWeight/2;
+			counterClockwise = false,
+			fps = 1000 / settings.fps,
+			update = .01;
+			this.angle = settings.startPercent;
+
+		this.drawArc = function(startAngle, percentFilled, color){
+			var drawingArc = true;
+			canvas.beginPath();
+			canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), counterClockwise);
+			canvas.strokeStyle = color;
+			canvas.lineWidth = settings.barWeight;
+			canvas.stroke();
+			drawingArc = false;
+		}
+
+		this.fillChart = function(stop){
+			var loop = setInterval(function(){
+				hoverPolice = true;
+				canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+				that.drawArc(0, 360, settings.trackColor);
+				that.angle += update;
+				that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+				if(that.angle > stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
+			}, fps);
+		}
+
+		this.mouseover(function(){
+			if(hoverPolice == false){
+				that.angle = settings.startPercent;
+				that.fillChart(settings.endPercent);
+			}
+		});
+
+		this.fillChart(settings.endPercent);
+		this.append(canvasElement);
+		return this;
+	}
+}(jQuery));
+
+$(document).ready(function() {
+
+	$('.google').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .9,
+		fps: 60
+	});
+  
+  $('.moz').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .75,
+		fps: 60
+	});
+  
+  $('.safari').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "#76C7C0",
+		barWeight: 20,
+		endPercent: .5,
+		fps: 60
+	});
+    
+});
+</script>
+<!--newhead 06.22.17.43-->
+<link rel="stylesheet" href="css/foundation.css">
+<link rel="stylesheet" href="css/app.css">
+<script src="js/modernizr.foundation.js"></script>
+<!--.newhead 06.22.17.43-->
+<link rel="icon" href="images/favicon.ico">
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="stylesheet" href="css/touchTouch.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-migrate-1.1.1.js"></script>
+		<script src="js/jquery.equalheights.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/touchTouch.jquery.js"></script>
+		<script>
+		$(document).ready(function(){
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			$('.gallery a.gal').touchTouch();
+		})
+		</script>
+		<!--[if lt IE 8]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
+		<!--[if lt IE 10]>
+		<link rel="stylesheet" media="screen" href="css/ie1.css">
+		<![endif]-->
+</head>
+
+
+
+<body>
+<!--main container-->
+
+<div class="container master">
+
+<!--header--><div class="header container">
+<div class="row"><!--row-->
+<!--logo--><div class="three columns logo">
+<a class="left" href="./index.html"><img src="images/logo.png" title="玛格南" alt="玛格南" style="height:110px;"/></a>
+</div><!-- /logo-->
+
+<!--navigation--><div class="nine columns">
+
+<ul class="nav-bar right">
+<li><a href="./index.html" class="main">首页</a></li>
+
+<!--sub menu--><li class="has-flyout"><a href="./about1.html">关于 +</a>
+<ul class="flyout">
+<li><a href="./about1.html">关于玛格南</a></li>
+<!--sub sub menu--><li class="has-flyout-sub"><a href="./about2.html" display="inline-block" style="width:150px">关于四骑士 +</a>
+
+<ul class="sub-flyout">
+<li><a href="./about2.html#simpleContained1" display="inline-block" style="width:150px">罗伯特·卡帕</a></li>
+<li><a href="./about2.html#simpleContained2" display="inline-block" style="width:150px">尤金·史密斯</a></li>
+<li><a href="./about2.html#simpleContained3" display="inline-block" style="width:150px">马克·吕布</a></li>
+<li><a href="./about2.html#simpleContained4" display="inline-block" style="width:150px">卡蒂埃·布列松</a></li>
+
+</ul>
+</ul><!--.sub sub menu-->
+
+</li><!--.submenu-->
+
+<li><a href="./page1.html">罗伯特·卡帕</a></li>
+<li><a href="./page2.html">尤金·史密斯</a></li>
+<li><a href="./page3.html">马克·吕布</a></li>
+<li><a href="./page4.html">卡蒂埃·布列松</a></li>
+</ul>
+
+</div><!--.navigation-->
+
+</div><!--.row-->
+</div><!--.header-->
+
+<!--grid-->
+<div class="row">
+<!--three columns--><div class="three columns" style="width:300px">
+
+<!--blog about--><div class="blog-about">
+<a style="font-family:arial;font-size:30px;">Photographer</a>
+<!--post 1--><div class="post">
+<div class="date"></div>
+<div style="width:270px;padding-left:25px;"><img src="images/mr/mr.jpg" style="width:200px;"/></div>
+
+<div class="title">
+<h5>马克·吕布</h5>
+</div>
+<div class="date"></div>
+<div class="text">
+<p>摄影无法改变世界，但能够展示世界，尤其是在世界本身不断变化之时。</p>
+</div>
+<div class="meta">
+<p>by Marc Riboud</p>
+</div>
+
+</div><!--.post 2-->
+
+</div><!--.blog about-->
+
+</div><!--.three columns-->
+<div class="container_12">
+<div class="gallery">
+					<div class="grid_3">
+						<a href="images/mr/mr1.jpg" class="gal"><img src="images/mr/smr1.jpg" alt=""></a>
+						<div class="text1">简·罗斯·克什米尔</div>
+						美国华盛顿特区.1967年.一名年轻的美国女孩简·罗斯·克什米尔在反越战游行上与五角大楼外的美国国民警卫队对峙.					<br>
+						
+					</div>
+					<div class="grid_3">
+						<a href="images/mr/mr2.jpg" class="gal"><img src="images/mr/smr2.jpg" alt=""></a>
+						<div class="text1">工业污染</div>
+						湖北省.1971年.长江边的武汉.工业中心.毛泽东塑像.
+						<br>
+						
+					</div>
+					<div class="grid_3">
+						<a href="images/mr/mr3.jpg" class="gal"><img src="images/mr/smr3.jpg" alt=""></a>
+						<div class="text1">老北京</div>
+						中国.1965年.从一家古董店的门窗中看到的一条北京街道.
+	<br>						
+					</div>
+<div class="clear"></div>
+					<div class="grid_3">
+						<a href="images/mr/mr4.jpg" class="gal"><img src="images/mr/smr4.jpg" alt=""></a>
+						<div class="text1">摔跤</div>
+						北京.1957年.在今天已经消失的桥边，两个摔跤手摔跤的有趣场面.
+						<br>
+						
+					</div>
+					
+					<div class="grid_3">
+						<a href="images/mr/mr5.jpg" class="gal"><img src="images/mr/smr5.jpg" alt=""></a>
+						<div class="text1">开会</div>
+						北京.1965年.
+						<br>
+						
+					</div>
+					<div class="grid_3">
+						<a href="images/mr/mr6.jpg" class="gal"><img src="images/mr/smr6.jpg" alt=""></a>
+						<div class="text1">示威</div>
+						中国.1965年.抗议美国对越南军事干预的示威游行.
+						<br>
+						
+					</div>
+                                        <div class="clear"></div>
+					<div class="grid_3">
+						<a href="images/mr/mr7.jpg" class="gal"><img src="images/mr/smr7.jpg" alt=""></a>
+						<div class="text1">少年先锋队</div>
+						北京.1965年.文化大革命前夕的少年先锋队队员们.
+						<br>
+						
+					</div>
+					<div class="grid_3">
+						<a href="images/mr/mr8.jpg" class="gal"><img src="images/mr/smr8.jpg" alt=""></a>
+						<div class="text1">拆迁</div>
+						上海.1992年.因为建设新的摩天大楼，当地人被从他们的家中赶出去.他们住在棚户区中等待被重新安置，周围堆满了冰箱、电视机、电风扇和白色的杂物.
+						<br>
+						
+					</div>
+<div class="grid_3">
+						<a href="images/mr/mr9.jpg" class="gal"><img src="images/mr/smr9.jpg" alt=""></a>
+						<div class="text1">游戏</div>
+						中国.上海.1995年.男孩正用塑料玩具枪指着同伴的头.
+						<br>
+						
+					</div>
+				</div>
+</div>
+</div><!--.grid-->
+
+
+<!--footer--><div class="footer container">
+<!--row--><div class="row bottom">
+<div class="left">
+Created With Passion by LyuLu.Copyright &copy;MoonLight Personal.All rights reserved.Contact the Author <a href="mailto:njlvlu@gmail.com" alt="发送邮件">吕露</a>.
+</div>
+
+<div class="right">
+<ul class="social">
+<li><a href="https://www.linkedin.com/uas/login?goback=%2Ebzo_*1_*1_*1_*1_*1_*1_*1_linkedin&trk=hb_signin"><img src="images/linkedin.png" alt="LinkedIn" title="LinkedIn" /></a></li>
+<li><a href="https://login.skype.com/login?setlang=zh-Hans&application=account"><img src="images/skype.png" alt="Skype" title="Skype" /></a></li>
+<li><a href="https://app.yinxiang.com/Login.action?targetUrl=%2FHome.action"><img src="images/evernote.png" alt="Evernote" title="Evernote" /></a></li>
+<li><a href="https://mail.qq.com/"><img src="images/rss.png" alt="Rss" title="Rss" /></a></li>
+</ul>
+</div>
+</div><!--.row-->
+</div><!--.footer container-->
+
+</body>
+</html>
